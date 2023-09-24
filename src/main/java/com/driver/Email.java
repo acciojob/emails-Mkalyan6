@@ -1,9 +1,14 @@
 package com.driver;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
 public class Email {
 
     private String emailId;
     private String password;
+
 
     public Email(String emailId) {
         this.emailId = emailId;

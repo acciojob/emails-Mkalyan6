@@ -3,11 +3,13 @@ package com.driver;
 import java.util.*;
 
 public class Gmail extends Email {
-     private List<MailDetails>InboxMails=new ArrayList<>();
-     private List<MailDetails>TrashMails=new ArrayList<>();
 
-      private HashMap<String,MailDetails>AllMails=new HashMap<>();
       private int inboxCapacity; //maximum number of mails inbox can store
+    private List<MailDetails> InboxMails=new ArrayList<>();
+    private List<MailDetails>TrashMails=new ArrayList<>();
+    private HashMap<String,MailDetails> AllMails=new HashMap<>();
+
+
 
 
         //Inbox: Stores mails. Each mail has date (Date), sender (String), message (String). It is guaranteed that message is distinct for all mails.
@@ -74,7 +76,8 @@ public class Gmail extends Email {
                         if (PresentDate.equals(start) || PresentDate.after(start) && PresentDate.before(end) || PresentDate.equals(end)) {
                                 CountOfMails++;
                         }
-                        if(PresentDate.after(end))break;
+
+//                        if(PresentDate.after(end))break;
                 }
                 return CountOfMails;
         }

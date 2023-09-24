@@ -34,7 +34,7 @@ public class Workspace extends Gmail {
         //First sort the arraylist according to start time of the meeting and
         // Traverse throught he  lsits and find the meetings colliding or not  and count  the attending orpossible meetings
         calendar.sort((a, b) -> {
-            return a.getStartTime().compareTo(b.getStartTime());
+            return a.getEndTime().compareTo(b.getEndTime());
         });
         if (calendar.size() == 0) return 0;
 
