@@ -5,9 +5,9 @@ import java.util.*;
 public class Gmail extends Email {
 
       private int inboxCapacity; //maximum number of mails inbox can store
-    private List<MailDetails> InboxMails=new ArrayList<>();
-    private List<MailDetails>TrashMails=new ArrayList<>();
-    private HashMap<String,MailDetails> AllMails=new HashMap<>();
+    private List<MailDetails> InboxMails;
+    private List<MailDetails>TrashMails;
+    private HashMap<String,MailDetails> AllMails;
 
 
 
@@ -17,6 +17,10 @@ public class Gmail extends Email {
         public Gmail(String emailId, int inboxCapacity) {
             super(emailId);
             this.inboxCapacity = inboxCapacity;
+            InboxMails=new ArrayList<>();
+            TrashMails=new ArrayList<>();
+            AllMails=new HashMap<>();
+
         }
 
         public void receiveMail(Date date, String sender, String message) {
