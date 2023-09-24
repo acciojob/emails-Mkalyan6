@@ -46,11 +46,17 @@ public class Gmail extends Email {
         public void deleteMail(String message) {
             // Each message is distinct
             // If the given message is found in any mail in the inbox, move the mail to trash, else do nothing
-                if(AllMails.containsKey(message)){
-                        MailDetails m=AllMails.get(message);
+//                if(AllMails.containsKey(message)){
+//                        MailDetails m=AllMails.get(message);
+//                       TrashMails.add(m);
+//                       InboxMails.remove(m);
+//                        AllMails.remove(message);
+               for(MailDetails m:InboxMails){
+                   if(m.message.equals(message)){
                        TrashMails.add(m);
                        InboxMails.remove(m);
-                        AllMails.remove(message);
+                       break;
+                   }
                 }
 
         }
