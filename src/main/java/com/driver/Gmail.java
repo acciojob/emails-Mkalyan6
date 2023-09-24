@@ -4,7 +4,7 @@ import java.util.*;
 
 public class Gmail extends Email {
 
-      private int inboxCapacity; //maximum number of mails inbox can store
+       int inboxCapacity; //maximum number of mails inbox can store
     private List<MailDetails> InboxMails;
     private List<MailDetails>TrashMails;
     private HashMap<String,MailDetails> AllMails;
@@ -29,7 +29,10 @@ public class Gmail extends Email {
             // 1. Each mail in the inbox is distinct.
             // 2. The mails are received in non-decreasing order. This means that the date of a new mail is greater than equal to the dates of mails received already.
              if(InboxMails.size()==inboxCapacity){
-                    TrashMails.add(InboxMails.remove(0));
+                 String OldMessage=findOldestMessage();
+                 MailDetails OldMail=AllMails.get(OldMessage);
+                  TrashMails.add(OldMail);
+                  InboxMails.remove(OldMail);
              }
              // create object of maildetails and add to inboxmails
                 MailDetails m=new MailDetails(date,sender, message);

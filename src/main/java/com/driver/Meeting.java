@@ -4,6 +4,15 @@ import java.time.LocalTime;
 
 public class Meeting {
     private LocalTime startTime;
+
+    public void setStartTime(LocalTime startTime) {
+        this.startTime = startTime;
+    }
+
+    public void setEndTime(LocalTime endTime) {
+        this.endTime = endTime;
+    }
+
     private LocalTime endTime;
 
     public Meeting(LocalTime startTime, LocalTime endTime){
