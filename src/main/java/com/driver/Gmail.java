@@ -61,8 +61,16 @@ public class Gmail extends Email {
             // If the inbox is empty, return null
             // Else, return the message of the oldest mail present in the inbox
                 if(InboxMails.size()==0)return null;
-                MailDetails m=InboxMails.get(0);
-                return m.message;
+
+            Date oldmailDate=null;
+            String OldMessage=null;
+                for(MailDetails m:InboxMails) {
+                    if (oldmailDate == null || m.date.before(oldmailDate)){
+                        oldmailDate = m.date;
+                    OldMessage = m.message;
+                }
+                }
+                return OldMessage;
 
         }
 
