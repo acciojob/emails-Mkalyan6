@@ -90,7 +90,7 @@ public class Gmail extends Email {
                 int CountOfMails=0;
                 for(MailDetails m:InboxMails){
                         Date PresentDate=m.date;
-                        if (PresentDate.equals(start) || PresentDate.after(start) && PresentDate.before(end) || PresentDate.equals(end)) {
+                        if (PresentDate.compareTo(start)>=0&&PresentDate.compareTo(end)<=0) {
                                 CountOfMails++;
                         }
 
