@@ -52,8 +52,17 @@ public class Gmail extends Email {
             // If the inbox is empty, return null
             // Else, return the message of the latest mail present in the inbox
                 if(InboxMails.size()==0)return null;
-                MailDetails m=InboxMails.get(InboxMails.size()-1);
-                return m.message;
+                Date LatestMailDate=null;
+                String LatestMessage=null;
+                for(MailDetails m:InboxMails){
+                    if(LatestMailDate==null||LatestMailDate.before(m.date)){
+                        LatestMessage=m.message;
+                        LatestMailDate=m.date;
+                    }
+                }
+//                MailDetails m=InboxMails.get(InboxMails.size()-1);
+
+                return LatestMessage;
 
         }
 
